@@ -15,7 +15,19 @@
         <i class="fas fa-thumbs-up"></i> Like
       </button>
       <span class="like-count">{{ post.likes }} Likes</span>
-      <button (click)="commentOnPost(post)">Comment</button>
+      <button (click)="toggleComments(post)">Comment</button>
+
+      <!-- Comments Section (Initially Hidden) -->
+      <div class="comments" *ngIf="showComments">
+        <h4>Comments:</h4>
+        <ul>
+          <li *ngFor="let comment of post.comments">
+            <span>{{ comment.username }}:</span>
+            {{ comment.body }}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
+
 </div>

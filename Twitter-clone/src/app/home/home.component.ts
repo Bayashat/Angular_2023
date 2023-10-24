@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   posts: Post[] = []; 
   liked: boolean = false;
+  showComments: boolean = false;
 
   constructor(private router: Router, private postService: PostService) { }
 
@@ -37,5 +38,9 @@ export class HomeComponent implements OnInit {
   
   goToAddPostPage() {
     this.router.navigate(['/feed']);
+  }
+
+  toggleComments(post: Post) {
+    this.showComments = !this.showComments;
   }
 }
