@@ -1,0 +1,37 @@
+.home-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column; /* Change flex-direction to column */
+  align-items: center; /* Center-align the posts */
+}
+
+.post {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  max-width: 700px; /* Use max-width instead of fixed width for responsive design */
+  text-align: left;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+
+
+.post-image {
+  max-width: 100%;
+  height: auto;
+}

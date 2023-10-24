@@ -1,0 +1,14 @@
+.about-container {
+    text-align: center;
+    margin: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}

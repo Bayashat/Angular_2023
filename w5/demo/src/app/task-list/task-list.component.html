@@ -1,0 +1,51 @@
+<fieldset>
+  <input type="text" [(ngModel)]="currentTask.title">
+  <button (click)="addTask()">Add Task </button>
+</fieldset>
+
+<div>
+  <h3>New Tasks</h3>
+  <ul *ngIf="newTasks.length">
+    <li *ngFor="let task of newTasks">
+
+      <app-task-item
+        [task]="task"
+        (remove)="onNewTaskRemove($event)"
+        (done)="onIsDoneChanged($event)"
+      >
+      </app-task-item>  <!-- $event is the argument from child -->
+
+    </li>
+  </ul>
+  <p *ngIf="newTasks.length == 0">The list is empty</p>
+</div>
+
+<div>
+  <h3>Done Tasks</h3>
+  <ul *ngIf="doneTasks.length">
+    <li *ngFor="let task of doneTasks">
+
+      <app-task-item
+        [task]="task"
+        (remove)="onDoneTaskRemove($event)"
+        (done)="onIsDoneChanged($event)">
+      </app-task-item>
+    </li>
+  </ul>
+  <p *ngIf="doneTasks.length == 0">The list is empty</p>
+</div>
+
+<!-- [] - inputs; Sending data from parent to child -->
+<!-- () - outputs; Sending event from child to parent -->
+
+
+<!-- 没创建Task-Item component 之前的版本: -->
+<!--&lt;!&ndash;      <span class="done_task">{{ task.id }}) {{ task.title }}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;      <span [ngClass]="task.isDone ? 'done_task' : ''">{{ task.id }}) {{ task.title }}</span>&ndash;&gt;-->
+<!--<span [class.done_task]="task.isDone">{{ task.id }}) {{ task.title }}</span>-->
+<!--&lt;!&ndash;             [checked]="task.isDone"   这样只能让我们给值，无法根据用户的值改变    &ndash;&gt;-->
+<!--&lt;!&ndash;      需要使用双向绑定才能既让checkbox根据task.isDone值来初始化为false, 也可以在user选择时改为true     &ndash;&gt;-->
+<!--<input type="checkbox"-->
+<!--       [(ngModel)]="task.isDone"-->
+<!--       (change)="isDoneChanged(task)"> Done?-->
+<!--<button (click)="removeTask(task.id)">remove</button>-->
